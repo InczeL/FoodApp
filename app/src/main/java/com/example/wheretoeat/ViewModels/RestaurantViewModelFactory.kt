@@ -1,4 +1,4 @@
-package com.example.wheretoeat
+package com.example.wheretoeat.ViewModels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
