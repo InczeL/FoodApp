@@ -29,6 +29,9 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    buildFeatures {
+        dataBinding true
+    }
 }
 
 dependencies {
@@ -63,5 +66,10 @@ dependencies {
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.1'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.1'
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"
+
+    //Recycel view
+    implementation "androidx.recyclerview:recyclerview:1.1.0"
+    //Card view
+    implementation "androidx.cardview:cardview:1.0.0"
 
 }

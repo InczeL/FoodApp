@@ -4,6 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.wheretoeat.model.Countries
+import com.example.wheretoeat.model.Restaurant
 
 import com.example.wheretoeat.model.Restaurats
 import com.example.wheretoeat.repository.Repository
@@ -14,9 +15,9 @@ import retrofit2.Response
 class RestaurantViewModel(private val repository: Repository) :ViewModel() {
     val myResponse :MutableLiveData<Response<Restaurats>> =MutableLiveData()
     val myResponseCountri :MutableLiveData<Response<Countries>> = MutableLiveData()
-    fun getRestaurantsByCountry(country:String){
+    fun getRestaurantsByCountry(country:String,current_page:Int){
         val launch = viewModelScope.launch {
-            val response: Response<Restaurats> = repository.getRestaurantsByCountry(country)
+            val response: Response<Restaurats> = repository.getRestaurantsByCountry(country,current_page)
             myResponse.value = response
         }
     }
