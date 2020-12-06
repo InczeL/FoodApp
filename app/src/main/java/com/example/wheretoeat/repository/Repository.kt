@@ -8,10 +8,10 @@ import retrofit2.Response
 import retrofit2.http.Query
 
 class Repository {
-   suspend fun getRestaurantsByCountry(country :String,page:Int):Response<Restaurats>{
-       return  RetrofitInstance.api.getRestaurantsByCountry(country,page)
-   }
-    suspend fun  getCoutries():Response<Countries>{
-        return RetrofitInstance.api.getCoutries()
-    }
+    suspend fun getRestaurantsByCountry(country :String,page:Int):Response<Restaurats> = RetrofitInstance.api.getRestaurantsByCountry(country,page)
+
+    suspend fun  getCoutries():Response<Countries> = RetrofitInstance.api.getCoutries()
+
+    suspend fun  getRestaurantsByCity(city : String,page :Int):Response<Restaurats> =
+        RetrofitInstance.api.getRestaurantsByCity(city,page)
 }

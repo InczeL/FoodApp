@@ -14,11 +14,17 @@ import retrofit2.http.Query
 
 interface RestApiService {
     @GET("/api/restaurants")
-   suspend fun  getRestaurantsByCountry(
+    suspend fun  getRestaurantsByCountry(
         @Query("country")country :String,
         @Query("page")page:Int
     ):Response<Restaurats>
 
     @GET("/api/countries")
     suspend fun  getCoutries():Response<Countries>
+
+    @GET("/api/restaurants")
+    suspend fun getRestaurantsByCity(
+        @Query("city")city:String,
+        @Query("page")page:Int
+    ):Response<Restaurats>
 }
