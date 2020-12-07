@@ -2,36 +2,35 @@ package com.example.wheretoeat
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.NavigationUI
 import com.example.wheretoeat.ViewModels.RestaurantViewModel
 import com.example.wheretoeat.ViewModels.RestaurantViewModelFactory
+import com.example.wheretoeat.databinding.ActivityMainBinding
 import com.example.wheretoeat.repository.Repository
-import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
     private lateinit var viewModel: RestaurantViewModel
+    private  lateinit var  binding:ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        val navView: BottomNavigationView = findViewById(R.id.nav_view)
-
-        val navController = findNavController(R.id.nav_host_fragment)
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        val appBarConfiguration = AppBarConfiguration(setOf(
-            R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications))
-        setupActionBarWithNavController(navController, appBarConfiguration)
-        navView.setupWithNavController(navController)
+        binding = DataBindingUtil.setContentView( this,R.layout.activity_main)
 
         val repository = Repository()
         val viewModelFactory = RestaurantViewModelFactory(repository)
         viewModel = ViewModelProvider(this,viewModelFactory).get(RestaurantViewModel::class.java)
 
-    }
+        setUpNavigation()
 
+    }
+    fun setUpNavigation(){
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment?
+        NavigationUI.setupWithNavController(
+            binding.navView,
+            navHostFragment!!.navController
+        )
+    }
 
 }

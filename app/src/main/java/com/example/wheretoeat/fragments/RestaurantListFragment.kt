@@ -1,4 +1,4 @@
-package com.example.wheretoeat.ui.restaurantList
+package com.example.wheretoeat.fragments
 
 import android.os.Bundle
 import android.util.Log
@@ -17,7 +17,7 @@ import com.example.wheretoeat.ViewModels.RestaurantViewModel
 import com.example.wheretoeat.databinding.FragmentRestaurantlistBinding
 import com.example.wheretoeat.util.RestaurantAdapter
 
-class RestaurantList : Fragment() {
+class RestaurantListFragment : Fragment() {
     private  lateinit var  binding :FragmentRestaurantlistBinding
     private  val restaurantViewModel:RestaurantViewModel by activityViewModels()
     private  var  page:Int =1
