@@ -25,6 +25,27 @@
         android:name="com.example.wheretoeat.fragments.DetailFragment"
         android:label="fragment_detail"
         tools:layout="@layout/fragment_detail" />
+    <fragment
+        android:id="@+id/startFragment"
+        android:name="com.example.wheretoeat.fragments.StartFragment"
+        android:label="fragment_start"
+        tools:layout="@layout/fragment_start" >
+        <action
+            android:id="@+id/action_startFragment_to_restaurant_list2"
+            app:destination="@id/restaurant_list" />
+        <action
+            android:id="@+id/action_startFragment_to_singInFragment2"
+            app:destination="@id/singInFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/singInFragment2"
+        android:name="com.example.wheretoeat.fragments.SingInFragment"
+        android:label="fragment_sing_in"
+        tools:layout="@layout/fragment_sing_in" >
+        <action
+            android:id="@+id/action_singInFragment2_to_startFragment"
+            app:destination="@id/startFragment" />
+    </fragment>
 
 
 </navigation>
