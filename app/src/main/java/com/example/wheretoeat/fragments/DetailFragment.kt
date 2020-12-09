@@ -12,7 +12,7 @@ import com.example.wheretoeat.model.Restaurant
 
 
 class DetailFragment (): Fragment() {
-    private lateinit var binding :FragmentDetailBinding
+    private lateinit var binding : FragmentDetailBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

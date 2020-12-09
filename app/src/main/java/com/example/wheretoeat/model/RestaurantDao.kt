@@ -1,16 +1,24 @@
 package com.example.wheretoeat.model
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 
 @Dao
 interface RestaurantDao {
-    @Insert(onConflict = OnConflictStrategy.ABORT)
-    fun addRestaurant(restaurant :Restaurant)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun addRestaurant(restaurant :Restaurant)
 
-    @Query("SELECT * FROM restaurant_table")
-    fun readAllData():LiveData<List<Restaurant>>
+    @Insert(onConflict = OnConflictStrategy.ABORT)
+    suspend fun addUser(user :User)
+
+    @Insert(onConflict = OnConflictStrategy.ABORT)
+    suspend fun addUserRestaurantCrossRef(userRestaurantCrossRef: UserRestaurantCrossRef)
+
+    @Transaction
+    @Query("SELECT * FROM user_table WHERE name = :userName")
+    suspend fun getFavorits(userName :String):List<UserRestaurants>
+
+    @Transaction
+    @Query("SELECT * FROM user_table WHERE name = :userName")
+    suspend fun getUser(userName :String):User
 }

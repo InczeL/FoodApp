@@ -20,5 +20,5 @@ data class Restaurant(
     val postal_code: String,
     val price: Int,
     val reserve_url: String,
-    val state: String
+    val state: String,
 )
