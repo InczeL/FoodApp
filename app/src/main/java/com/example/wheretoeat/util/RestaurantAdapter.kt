@@ -4,13 +4,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wheretoeat.R
-import com.example.wheretoeat.fragments.DetailFragment
-import com.example.wheretoeat.model.Restaurant
+import com.example.wheretoeat.database.Restaurant
 import kotlinx.android.synthetic.main.restaurant.view.*
 
 class RestaurantAdapter(private val List: List<Restaurant>):RecyclerView.Adapter<RestaurantAdapter.RestaurantViewHolder>()

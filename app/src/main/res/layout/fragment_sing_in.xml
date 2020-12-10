@@ -16,6 +16,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
+            android:layout_marginTop="20dp"
             android:src="@mipmap/ic_launcher"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -31,10 +32,12 @@
             android:hint="Username"
             android:inputType="text"
             android:textColorHint="#ffffff"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.447"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+            app:layout_constraintTop_toBottomOf="@+id/imageView3"
+            app:layout_constraintVertical_bias="0.0" />
 
         <EditText
             android:id="@+id/si_address"
@@ -44,10 +47,12 @@
             android:hint="Address"
             android:inputType="text"
             android:textColorHint="#ffffff"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.427"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/siConfPassword" />
+            app:layout_constraintTop_toBottomOf="@+id/siConfPassword"
+            app:layout_constraintVertical_bias="0.0" />
 
         <EditText
             android:id="@+id/si_Phone"
@@ -57,9 +62,11 @@
             android:hint="Phone number"
             android:inputType="phone"
             android:textColorHint="#ffffff"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/si_address" />
+            app:layout_constraintTop_toBottomOf="@+id/si_address"
+            app:layout_constraintVertical_bias="0.0" />
 
         <EditText
             android:id="@+id/si_Email"
@@ -69,10 +76,12 @@
             android:hint="Email"
             android:inputType="textEmailAddress"
             android:textColorHint="#ffffff"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.401"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/si_Phone" />
+            app:layout_constraintTop_toBottomOf="@+id/si_Phone"
+            app:layout_constraintVertical_bias="0.0" />
 
         <Button
             android:id="@+id/si_singInBtn"
@@ -96,10 +105,12 @@
             android:hint="Password"
             android:inputType="textPassword"
             android:textColorHint="#ffffff"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.716"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/si_userName" />
+            app:layout_constraintTop_toBottomOf="@+id/si_userName"
+            app:layout_constraintVertical_bias="0.0" />
 
         <EditText
             android:id="@+id/siConfPassword"
@@ -110,10 +121,12 @@
             android:hint="Confirm Password"
             android:inputType="textPassword"
             android:textColorHint="#ffffff"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.716"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/siPassword" />
+            app:layout_constraintTop_toBottomOf="@+id/siPassword"
+            app:layout_constraintVertical_bias="0.0" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

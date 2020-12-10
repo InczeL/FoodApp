@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import com.example.wheretoeat.R
 import com.example.wheretoeat.databinding.FragmentDetailBinding
-import com.example.wheretoeat.model.Restaurant
 
 
 class DetailFragment (): Fragment() {

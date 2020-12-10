@@ -29,7 +29,7 @@ class RestaurantListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding=DataBindingUtil.inflate(inflater,R.layout.fragment_restaurantlist,container,false)
-        restaurantViewModel.getCoutries();
+        /*restaurantViewModel.getCoutries();
         restaurantViewModel.myResponseCountry.observe(viewLifecycleOwner,{ response->
             if(response.isSuccessful){
                 val countries:List<String> = restaurantViewModel.myResponseCountry.value!!.body()!!.countries
@@ -48,11 +48,12 @@ class RestaurantListFragment : Fragment() {
                     }
 
                     override fun onNothingSelected(parent: AdapterView<*>?) {
-                        TODO("Not yet implemented")
+
                     }
 
                 }
             }
+
         })
         restaurantViewModel.getRestaurantsByCountry(country,page)
         restaurantViewModel.myResponse.observe(viewLifecycleOwner,{response->
@@ -152,7 +153,7 @@ class RestaurantListFragment : Fragment() {
                 })
             }
 
-        }
+        }*/
 
 
         return  binding.root
