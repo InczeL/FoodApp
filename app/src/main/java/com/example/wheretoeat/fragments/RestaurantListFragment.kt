@@ -54,8 +54,8 @@ class RestaurantListFragment : Fragment() {
                 }
             }
 
-        })
-        restaurantViewModel.getRestaurantsByCountry(country,page)
+        })*/
+        restaurantViewModel.getRestaurantsByCountry("US",1)
         restaurantViewModel.myResponse.observe(viewLifecycleOwner,{response->
             if(response.isSuccessful){
                 binding.recyclerView.adapter= RestaurantAdapter(response.body()!!.restaurants)
@@ -73,6 +73,9 @@ class RestaurantListFragment : Fragment() {
                 else{
                     binding.prevbtn.visibility = View.VISIBLE
                 }
+            }
+            else{
+                Log.d("Test",response.toString())
             }
         })
         binding.searchbtn.setOnClickListener{
@@ -106,7 +109,6 @@ class RestaurantListFragment : Fragment() {
         }
         binding.nextbtn.setOnClickListener{
             page++
-            Log.d("TestN",city)
             if(city.isEmpty()){
                 restaurantViewModel.getRestaurantsByCountry(country,page)
                 restaurantViewModel.myResponse.observe(viewLifecycleOwner,{response->
@@ -131,7 +133,6 @@ class RestaurantListFragment : Fragment() {
         }
         binding.prevbtn.setOnClickListener{
             page--
-            Log.d("TestP",city)
             if(city.isEmpty()) {
                 restaurantViewModel.getRestaurantsByCountry(country, page)
                 restaurantViewModel.myResponse.observe(viewLifecycleOwner,{response->
@@ -153,7 +154,7 @@ class RestaurantListFragment : Fragment() {
                 })
             }
 
-        }*/
+        }
 
 
         return  binding.root

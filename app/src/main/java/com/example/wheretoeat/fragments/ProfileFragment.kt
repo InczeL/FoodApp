@@ -1,4 +1,4 @@
-package com.example.wheretoeat.ui.dashboard
+package com.example.wheretoeat.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,8 +9,9 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.wheretoeat.R
+import com.example.wheretoeat.ui.dashboard.DashboardViewModel
 
-class DashboardFragment : Fragment() {
+class ProfileFragment : Fragment() {
 
     private lateinit var dashboardViewModel: DashboardViewModel
 
@@ -19,13 +20,7 @@ class DashboardFragment : Fragment() {
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        dashboardViewModel =
-                ViewModelProviders.of(this).get(DashboardViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_dashboard, container, false)
-        val textView: TextView = root.findViewById(R.id.text_dashboard)
-        dashboardViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
+        val root = inflater.inflate(R.layout.fragment_profile, container, false)
         return root
     }
 }
