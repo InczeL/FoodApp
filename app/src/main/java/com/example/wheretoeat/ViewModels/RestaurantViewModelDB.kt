@@ -29,10 +29,10 @@ class RestaurantViewModelDB(application: Application):AndroidViewModel(applicati
             repository.addUser(user)
         }
     }
-    fun getUser(p_name :String): User {
+    /*fun getUser(p_name :String): User {
         viewModelScope.launch { (Dispatchers.IO){
             user = repository.getUser(p_name)
         } }
         return  user
-    }
+    }*/
 }

@@ -13,8 +13,8 @@ class RestaurantRepository(private val restaurantDao: RestaurantDao) {
     suspend fun addUser(user: User){
         restaurantDao.addUser(user)
     }
-    suspend fun  getUser(p_name:String): User {
-        user= restaurantDao.getUser(p_name)
+    /*suspend fun  getUser(p_name:String): User {
+        user= restaurantDao.getUser(p_name).value!!
         return user
-    }
+    }*/
 }

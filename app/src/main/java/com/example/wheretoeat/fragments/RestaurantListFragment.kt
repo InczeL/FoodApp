@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.wheretoeat.R
+import com.example.wheretoeat.ViewModels.ProfileViewModel
 import com.example.wheretoeat.ViewModels.RestaurantViewModel
 import com.example.wheretoeat.databinding.FragmentRestaurantlistBinding
 import com.example.wheretoeat.util.RestaurantAdapter
@@ -20,6 +21,7 @@ import com.example.wheretoeat.util.RestaurantAdapter
 class RestaurantListFragment : Fragment() {
     private  lateinit var  binding :FragmentRestaurantlistBinding
     private  val restaurantViewModel:RestaurantViewModel by activityViewModels()
+    private val  profileViewModel: ProfileViewModel by activityViewModels()
     private  var  page:Int =1
     private  var country :String ="US"
     private  var city:String=""
@@ -58,7 +60,7 @@ class RestaurantListFragment : Fragment() {
         restaurantViewModel.getRestaurantsByCountry("US",1)
         restaurantViewModel.myResponse.observe(viewLifecycleOwner,{response->
             if(response.isSuccessful){
-                binding.recyclerView.adapter= RestaurantAdapter(response.body()!!.restaurants)
+                binding.recyclerView.adapter= RestaurantAdapter(response.body()!!.restaurants,profileViewModel)
                 binding.recyclerView.layoutManager=LinearLayoutManager(activity?.baseContext)
                 binding.recyclerView.setHasFixedSize(true)
                 if(page*response!!.body()!!.per_page < response!!.body()!!.total_entries){
@@ -89,7 +91,7 @@ class RestaurantListFragment : Fragment() {
                 restaurantViewModel.getRestaurantsByCity(city,page)
                 restaurantViewModel.myResponseCity.observe(viewLifecycleOwner,{response->
                     if(response.isSuccessful)
-                        binding.recyclerView.adapter= RestaurantAdapter(response.body()!!.restaurants)
+                        binding.recyclerView.adapter= RestaurantAdapter(response.body()!!.restaurants,profileViewModel)
                         binding.recyclerView.layoutManager=LinearLayoutManager(activity?.baseContext)
                         binding.recyclerView.setHasFixedSize(true)
                         if(page*response!!.body()!!.per_page < response!!.body()!!.total_entries){
@@ -113,7 +115,7 @@ class RestaurantListFragment : Fragment() {
                 restaurantViewModel.getRestaurantsByCountry(country,page)
                 restaurantViewModel.myResponse.observe(viewLifecycleOwner,{response->
                     if(response.isSuccessful){
-                        binding.recyclerView.adapter= RestaurantAdapter(response.body()!!.restaurants)
+                        binding.recyclerView.adapter= RestaurantAdapter(response.body()!!.restaurants,profileViewModel)
                         binding.recyclerView.layoutManager=LinearLayoutManager(activity?.baseContext)
                         binding.recyclerView.setHasFixedSize(true)
                     }
@@ -123,7 +125,7 @@ class RestaurantListFragment : Fragment() {
                 restaurantViewModel.getRestaurantsByCity(city,page)
                 restaurantViewModel.myResponseCity.observe(viewLifecycleOwner,{response->
                     if(response.isSuccessful){
-                        binding.recyclerView.adapter= RestaurantAdapter(response.body()!!.restaurants)
+                        binding.recyclerView.adapter= RestaurantAdapter(response.body()!!.restaurants,profileViewModel)
                         binding.recyclerView.layoutManager=LinearLayoutManager(activity?.baseContext)
                         binding.recyclerView.setHasFixedSize(true)
                     }
@@ -137,7 +139,7 @@ class RestaurantListFragment : Fragment() {
                 restaurantViewModel.getRestaurantsByCountry(country, page)
                 restaurantViewModel.myResponse.observe(viewLifecycleOwner,{response->
                     if(response.isSuccessful){
-                        binding.recyclerView.adapter= RestaurantAdapter(response.body()!!.restaurants)
+                        binding.recyclerView.adapter= RestaurantAdapter(response.body()!!.restaurants,profileViewModel)
                         binding.recyclerView.layoutManager=LinearLayoutManager(activity?.baseContext)
                         binding.recyclerView.setHasFixedSize(true)
                     }
@@ -147,7 +149,7 @@ class RestaurantListFragment : Fragment() {
                 restaurantViewModel.getRestaurantsByCity(city,page)
                 restaurantViewModel.myResponseCity.observe(viewLifecycleOwner,{response->
                     if(response.isSuccessful){
-                        binding.recyclerView.adapter= RestaurantAdapter(response.body()!!.restaurants)
+                        binding.recyclerView.adapter= RestaurantAdapter(response.body()!!.restaurants,profileViewModel)
                         binding.recyclerView.layoutManager=LinearLayoutManager(activity?.baseContext)
                         binding.recyclerView.setHasFixedSize(true)
                     }
