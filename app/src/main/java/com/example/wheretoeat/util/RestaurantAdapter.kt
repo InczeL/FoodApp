@@ -19,35 +19,41 @@ import kotlinx.android.synthetic.main.restaurant.view.*
 
 
 
-class RestaurantAdapter(private val List: List<Restaurant>,val profileViewModel :ProfileViewModel):RecyclerView.Adapter<RestaurantAdapter.RestaurantViewHolder>()
+class RestaurantAdapter(private val List: ArrayList<Restaurant>, private val profileViewModel :ProfileViewModel):RecyclerView.Adapter<RestaurantAdapter.RestaurantViewHolder>()
 {
+    var m_position :Int = 0
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RestaurantViewHolder {
         val itemView=LayoutInflater.from(parent.context).inflate(R.layout.restaurant,parent,false)
         return  RestaurantViewHolder(itemView)
     }
     override fun onBindViewHolder(holder: RestaurantViewHolder, position: Int) {
+        m_position=position
         val currentItem= List.get(position)
         holder.m_title.text=currentItem?.name
         holder.m_address.text=currentItem?.address
         holder.m_price.text=currentItem?.price.toString()
-        if(currentItem.isfavorited){
-            holder.favbtn.setBackgroundResource(R.drawable.ic_baseline_favorite_24)
+
+        if(!profileViewModel.getFavorits().contains(currentItem)) {
+            holder.favbtn.setBackgroundResource(R.drawable.ic_baseline_favorite_shadow_24)
+
         }
         else{
-            holder.favbtn.setBackgroundResource(R.drawable.ic_baseline_favorite_shadow_24)
+            currentItem.isfavorited = true
+            holder.favbtn.setBackgroundResource(R.drawable.ic_baseline_favorite_24)
         }
         holder.favbtn.setOnClickListener{
             if(currentItem.isfavorited ){
                 holder.favbtn.setBackgroundResource(R.drawable.ic_baseline_favorite_shadow_24)
-                Log.d("Test",currentItem.name)
                 currentItem.isfavorited=false
                 profileViewModel.removeFavorit(currentItem)
+                Log.d("Test", currentItem.name)
+
             }
             else{
                 holder.favbtn.setBackgroundResource(R.drawable.ic_baseline_favorite_24)
-                Log.d("Test",currentItem.name)
                 currentItem.isfavorited=true
                 profileViewModel.addFavorit(currentItem)
+
             }
         }
         holder.itemView.setOnClickListener(object :View.OnClickListener{
@@ -79,7 +85,7 @@ class RestaurantAdapter(private val List: List<Restaurant>,val profileViewModel 
         })
     }
     override fun getItemCount()= List.size
-
+    fun getPosition()=m_position
     class RestaurantViewHolder(itemView : View):RecyclerView.ViewHolder(itemView){
 
         val m_title :TextView=itemView.title

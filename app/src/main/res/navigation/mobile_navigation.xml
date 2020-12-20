@@ -25,6 +25,15 @@
         android:name="com.example.wheretoeat.fragments.DetailFragment"
         android:label="fragment_detail"
         tools:layout="@layout/fragment_detail" />
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.example.wheretoeat.fragments.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/action_splashFragment_to_restaurant_list"
+            app:destination="@id/restaurant_list" />
+    </fragment>
 
 
 </navigation>

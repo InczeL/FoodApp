@@ -1,16 +1,15 @@
 package com.example.wheretoeat.repository
 
 import com.example.wheretoeat.api.RetrofitInstance
-import com.example.wheretoeat.model.Countries
+import com.example.wheretoeat.model.Cities
 import com.example.wheretoeat.model.Restaurats
-import retrofit2.Call
 import retrofit2.Response
-import retrofit2.http.Query
+
 
 class Repository {
-    suspend fun getRestaurantsByCountry(country :String,page:Int):Response<Restaurats> = RetrofitInstance.api.getRestaurantsByCountry(country,page)
+    suspend fun getRestaurantsByCountry(page:Int):Response<Restaurats> = RetrofitInstance.api.getRestaurants(page)
 
-    suspend fun  getCoutries():Response<Countries> = RetrofitInstance.api.getCoutries()
+    suspend fun  getCities():Response<Cities> = RetrofitInstance.api.getCities()
 
     suspend fun  getRestaurantsByCity(city : String,page :Int):Response<Restaurats> =
         RetrofitInstance.api.getRestaurantsByCity(city,page)

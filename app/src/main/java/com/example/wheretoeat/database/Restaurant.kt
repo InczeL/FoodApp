@@ -10,7 +10,7 @@ data class Restaurant(
     val city: String,
     val country: String,
     @PrimaryKey(autoGenerate = false)
-    val id: Int,
+    val id: Long,
     val image_url: String,
     val lat: Double,
     val lng: Double,

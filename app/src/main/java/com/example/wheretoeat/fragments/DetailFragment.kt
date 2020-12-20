@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import com.bumptech.glide.Glide
 import com.example.wheretoeat.R
 import com.example.wheretoeat.databinding.FragmentDetailBinding
 
@@ -26,6 +27,7 @@ class DetailFragment (): Fragment() {
         binding.postalCode.text=arguments?.getString("postal_code")
         binding.country.text=arguments?.getString("country")
         binding.phone.text=arguments?.getString("phone")
+        Glide.with(context).load(arguments?.getString("image_url")).into(binding.image)
         return binding.root
 
     }
